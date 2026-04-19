@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resident Bypass Manuscript</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --bg-card: #161b27;
+    --bg-card-hover: #1c2333;
+    --border: rgba(255,255,255,0.07);
+    --border-accent: rgba(196,162,104,0.35);
+    --gold: #c4a268;
+    --gold-light: #d4b47a;
+    --cream: #e8e0d0;
+    --muted: #7a8499;
+    --muted2: #4a5268;
+    --danger: #e05252;
+    --success: #4caf82;
+    --warning: #d4a44a;
+    --info: #5b8fd4;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  .grain {
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  header {
+    padding: 5rem 0 3rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+  }
+
+  .journal-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .journal-tag::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+    max-width: 720px;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .meta-item {
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .meta-item span {
+    color: var(--cream);
+    opacity: 0.7;
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+  }
+
+  .badge-draft { background: rgba(212,164,74,0.12); color: var(--warning); border: 1px solid rgba(212,164,74,0.2); }
+  .badge-verified { background: rgba(76,175,130,0.12); color: var(--success); border: 1px solid rgba(76,175,130,0.2); }
+  .badge-pending { background: rgba(91,143,212,0.12); color: var(--info); border: 1px solid rgba(91,143,212,0.2); }
+
+  /* Notice */
+  .notice {
+    background: rgba(224,82,82,0.08);
+    border: 1px solid rgba(224,82,82,0.2);
+    border-left: 3px solid var(--danger);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin-bottom: 2.5rem;
+    font-size: 13px;
+    color: rgba(232,224,208,0.8);
+  }
+
+  .notice strong { color: var(--danger); font-weight: 500; }
+
+  /* Section: Argument */
+  .argument {
+    background: var(--bg-card);
+    border: 1px solid var(--border-accent);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .argument h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 11px;
+    margin-bottom: 1rem;
+  }
+
+  .argument p {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--cream);
+    opacity: 0.85;
+    line-height: 1.75;
+  }
+
+  /* TOC */
+  .toc-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted2);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .toc-grid {
+    display: grid;
+    gap: 8px;
+  }
+
+  .toc-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: start;
+    gap: 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+    cursor: pointer;
+  }
+
+  .toc-item:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(196,162,104,0.25);
+  }
+
+  .toc-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 13px;
+    color: var(--gold);
+    opacity: 0.7;
+    min-width: 20px;
+    padding-top: 1px;
+  }
+
+  .toc-content { flex: 1; }
+
+  .toc-title {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 3px;
+    line-height: 1.4;
+  }
+
+  .toc-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .toc-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    min-width: 80px;
+  }
+
+  /* Data table */
+  .data-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .data-table th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .data-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--cream);
+    opacity: 0.8;
+    vertical-align: top;
+  }
+
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .data-table td:first-child { color: var(--gold); opacity: 0.8; font-size: 12px; font-family: 'DM Sans', sans-serif; }
+  .data-table td:nth-child(2) { font-family: 'EB Garamond', serif; font-size: 14px; }
+  .data-table td:nth-child(3) { color: var(--muted); font-size: 12px; }
+
+  .data-table-wrap {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  /* Pending */
+  .pending-list {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .pending-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: rgba(232,224,208,0.7);
+  }
+
+  .pending-item:last-child { border-bottom: none; }
+
+  .pending-box {
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--muted2);
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .pending-box.partial {
+    background: rgba(212,164,74,0.2);
+    border-color: var(--warning);
+    position: relative;
+  }
+
+  .pending-box.partial::after {
+    content: '~';
+    position: absolute;
+    top: -3px;
+    left: 2px;
+    font-size: 11px;
+    color: var(--warning);
+  }
+
+  .pending-note {
+    font-size: 11px;
+    color: var(--warning);
+    margin-top: 3px;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 3rem;
+    margin-top: 3rem;
+    font-size: 12px;
+    color: var(--muted2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* Combined file highlight */
+  .combined-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(196,162,104,0.06);
+    border: 1px solid var(--border-accent);
+    border-radius: 8px;
+    padding: 16px 20px;
+    text-decoration: none;
+    margin-bottom: 2.5rem;
+    transition: background 0.15s;
+  }
+
+  .combined-link:hover { background: rgba(196,162,104,0.1); }
+
+  .combined-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(196,162,104,0.15);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .combined-icon svg { width: 18px; height: 18px; fill: var(--gold); }
+
+  .combined-text .ct-title {
+    font-size: 14px;
+    color: var(--cream);
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+
+  .combined-text .ct-sub {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .combined-arrow {
+    margin-left: auto;
+    color: var(--gold);
+    opacity: 0.5;
+    font-size: 18px;
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 3rem 0 2rem; }
+    .toc-item { grid-template-columns: auto 1fr; }
+    .toc-right { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="container">
+
+  <header>
+    <p class="journal-tag">Target: The Joint Commission Journal on Quality and Patient Safety</p>
+    <h1>Beyond Educational Deprivation: Resident Bypass as a Source of Guideline-Discordant Clinical Decisions and Measurable Patient-Level Harm</h1>
+    <div class="meta">
+      <div class="meta-item">Status <span class="status-badge badge-draft">Complete First Draft</span></div>
+      <div class="meta-item">Version <span>1.0 — April 18, 2026</span></div>
+      <div class="meta-item">Access <span>Private — Invited Reviewers Only</span></div>
+    </div>
+  </header>
+
+  <div class="notice">
+    <strong>De-identification notice:</strong> All manuscript files are fully de-identified. No patient names, provider names, institution names, MRN numbers, accession numbers, or specific calendar dates appear in any manuscript file. Source documents in <code>/source_docs/</code> contain identifying information and are for internal reference only — not for external distribution or submission.
+  </div>
+
+  <div class="argument">
+    <h2>Central Argument</h2>
+    <p>Resident bypass is not a supervisory style. This case documents it as a patient safety failure mode with a reproducible mechanism, a traceable causal chain from bypass decision to patient-level harm, and an institutional detection gap that existing supervisory and reporting frameworks are structurally unable to address.</p>
+  </div>
+
+  <!-- Combined file -->
+  <a class="combined-link" href="COMBINED_MANUSCRIPT_DEIDENTIFIED.md">
+    <div class="combined-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg>
+    </div>
+    <div class="combined-text">
+      <div class="ct-title">Read complete manuscript (single file)</div>
+      <div class="ct-sub">All sections and timeline in one document — recommended for first read</div>
+    </div>
+    <div class="combined-arrow">→</div>
+  </a>
+
+  <!-- Manuscript sections -->
+  <div class="toc-section">
+    <p class="section-label">Manuscript Sections</p>
+    <div class="toc-grid">
+
+      <a class="toc-item" href="manuscript/12_abstract_v1.md">
+        <div class="toc-num">Abs</div>
+        <div class="toc-content">
+          <div class="toc-title">Structured Abstract</div>
+          <div class="toc-desc">Background, case summary, analysis, conclusions — JCJQS four-part format</div>
+        </div>
+        <div class="toc-right">
+          <span class="status-badge badge-draft">Draft 1.0</span>
+        </div>
+      </a>
+
+      <a class="toc-item" href="manuscript/08_section1_introduction_v1.md">
+        <div class="toc-num">§1</div>
+        <div class="toc-content">
+          <div class="toc-title">Introduction</div>
+          <div class="toc-desc">Supervision as a safety system; the inverse supervision risk; gap in existing literature</div>
+        </div>
+        <div class="toc-right">
+          <span class="status-badge badge-draft">Draft 1.0</span>
+        </div>
+      </a>
+
+      <a class="toc-item" href="manuscript/04_section2_case_presentation_v3.md">
+        <div class="toc-num">§2</div>
+        <div class="toc-content">
+          <div class="toc-title">Case Presentation</div>
+          <div class="toc-desc">Complete primary-source-grounded clinical narrative — Day 2, 3:07 AM through Day 3, 10:28 AM</div>
+        </div>
+        <div class="toc-right">
+          <span class="status-badge badge-verified">Draft 3.0</span>
+        </div>
+      </a>
+
+      <a class="toc-item" href="manuscript/05_section3a_guideline_concordance_v2.md">
+        <div class="toc-num">§3a</div>
+        <div class="toc-content">
+          <div class="toc-title">Guideline Concordance Analysis</div>
+          <div class="toc-desc">ACC/AHA perioperative guideline applied systematically; internal contradiction of attending decisions</div>
+        </div>
+        <div class="toc-right">
+          <span class="status-badge badge-verified">Draft 2.0</span>
+        </div>
+      </a>
+
+      <a class="toc-item" href="manuscript/06_section3b_causal_chain_v2.md">
+        <div class="toc-num">§3b</div>
+        <div class="toc-content">
+          <div class="toc-title">Causal Chain and Patient-Level Harm</div>
+          <div class="toc-desc">Five-link chain from bypass decision to nocturnal hemodynamic episode and fait accompli bypass</div>
+        </div>
+        <div class="toc-right">
+          <span class="status-badge badge-verified">Draft 2.0</span>
+        </div>
+      </a>
+
+      <a class="toc-item" href="manuscript/07_section3c_systems_failure_v2.md">
+        <div class="toc-num">§3c</div>
+        <div class="toc-content">
+          <div class="toc-title">Systems Failure Analysis</div>
+          <div class="toc-desc">Five failure modes; fait accompli mechanism; documented pattern across both bypass events</div>
+        </div>
+        <div class="toc-right">
+          <span class="status-badge badge-verified">Draft 2.0</span>
+        </div>
+      </a>
+
+      <a class="toc-item" href="manuscript/09_section4_discussion_v1.md">
+        <div class="toc-num">§4</div>
+        <div class="toc-content">
+          <div class="toc-title">Discussion</div>
+          <div class="toc-desc">Why bypass has been framed as educational; what a patient safety framing adds; inverse supervision risk; limitations</div>
+        </div>
+        <div class="toc-right">
+          <span class="status-badge badge-draft">Draft 1.0</span>
+        </div>
+      </a>
+
+      <a class="toc-item" href="manuscript/10_section5_recommendations_v1.md">
+        <div class="toc-num">§5</div>
+        <div class="toc-content">
+          <div class="toc-title">Recommendations</div>
+          <div class="toc-desc">Six systems-level recommendations for institutions, program directors, and quality officers</div>
+        </div>
+        <div class="toc-right">
+          <span class="status-badge badge-draft">Draft 1.0</span>
+        </div>
+      </a>
+
+      <a class="toc-item" href="manuscript/11_section6_conclusion_v1.md">
+        <div class="toc-num">§6</div>
+        <div class="toc-content">
+          <div class="toc-title">Conclusion</div>
+          <div class="toc-desc">Returns to 3:07 AM; closing argument; call to institutional action</div>
+        </div>
+        <div class="toc-right">
+          <span class="status-badge badge-draft">Draft 1.0</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Reference documents -->
+  <div class="toc-section">
+    <p class="section-label">Reference Documents</p>
+    <div class="toc-grid">
+
+      <a class="toc-item" href="reference/01_verified_timeline_v2.md">
+        <div class="toc-num">TL</div>
+        <div class="toc-content">
+          <div class="toc-title">Verified Clinical Timeline</div>
+          <div class="toc-desc">Complete de-identified chronology — Day 1 through Day 3, 10:28 AM — with SecureChat transcript and MAR corroboration</div>
+        </div>
+        <div class="toc-right">
+          <span class="status-badge badge-verified">Verified</span>
+        </div>
+      </a>
+
+      <a class="toc-item" href="manuscript/00_master_index_v2.md">
+        <div class="toc-num">Idx</div>
+        <div class="toc-content">
+          <div class="toc-title">Master Index and Project Status</div>
+          <div class="toc-desc">Full file inventory, preliminary AMA reference list, pre-submission checklist</div>
+        </div>
+        <div class="toc-right">
+          <span class="status-badge badge-verified">Current</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Key data -->
+  <div class="data-section">
+    <p class="section-label">Key Clinical Data</p>
+    <div class="data-table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Finding</th>
+            <th>Value</th>
+            <th>Significance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>BNP</td><td>202.8 pg/mL</td><td>Attending's stated rationale; not an ACC/AHA active cardiac condition</td></tr>
+          <tr><td>Echo EF</td><td>71% (hyperdynamic)</td><td>Categorically excludes HFrEF</td></tr>
+          <tr><td>Diastolic function</td><td>Formally normal</td><td>Explicitly read as normal by interpreting cardiologist</td></tr>
+          <tr><td>E/e' average</td><td>12 (normal ≤14)</td><td>No elevated filling pressures</td></tr>
+          <tr><td>LAVI</td><td>28 mL/m² (normal)</td><td>No chronic pressure elevation</td></tr>
+          <tr><td>PA systolic pressure</td><td>50 mmHg</td><td>Not an ACC/AHA active cardiac condition; cardiologist reviewed and cleared</td></tr>
+          <tr><td>RCRI score</td><td>0</td><td>0.5–3.9% 30-day major cardiac event risk; documented in H&P at 3:07 AM</td></tr>
+          <tr><td>Troponin pattern</td><td>0.06 → 0.05 → 0.06 ng/mL</td><td>Type II MI / demand ischemia (cardiologist's characterization)</td></tr>
+          <tr><td>Cardiology conclusion</td><td>"Perioperative cardiovascular risk is low, cannot be lowered further"</td><td>Verbatim; identical to resident's 3:07 AM assessment</td></tr>
+          <tr><td>Attending attestation</td><td>28 minutes after cardiology clearance</td><td>Documented agreement with resident's plan</td></tr>
+          <tr><td>Nocturnal BP nadir</td><td>79/44 mmHg (0015, Day 3)</td><td>Sleeping, asymptomatic; HR 85; SpO₂ >94%</td></tr>
+          <tr><td>Hgb decline</td><td>11.3 → 8.8 g/dL</td><td>~750–800 mL fracture hematoma blood loss (resident's overnight note)</td></tr>
+          <tr><td>Surgery outcome</td><td>No complications; EBL 3 mL</td><td>Day 3, 10:28 AM — following bypass-generated delay</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Pending items -->
+  <div class="toc-section">
+    <p class="section-label">Pending Before Submission</p>
+    <div class="pending-list">
+
+      <div class="pending-item">
+        <div class="pending-box partial"></div>
+        <div>
+          <div>Day team failure to contact cardiology — documentable from chart</div>
+          <div class="pending-note">Partial: cardiology office verbal confirmation; NP verbal confirmation; note creation timestamp (8:06 PM) corroborates. Formal chart notation pending.</div>
+        </div>
+      </div>
+
+      <div class="pending-item">
+        <div class="pending-box"></div>
+        <div>
+          <div>Reason for daytime hospitalist fluid order end time (~4:45 PM) — NP Sedlak not yet consulted</div>
+        </div>
+      </div>
+
+      <div class="pending-item">
+        <div class="pending-box"></div>
+        <div>Faculty co-author identified and confirmed</div>
+      </div>
+
+      <div class="pending-item">
+        <div class="pending-box"></div>
+        <div>IRB / case report exemption determination</div>
+      </div>
+
+      <div class="pending-item">
+        <div class="pending-box"></div>
+        <div>Final de-identification verification prior to submission</div>
+      </div>
+
+      <div class="pending-item">
+        <div class="pending-box"></div>
+        <div>Word count verified against JCJQS submission guidelines</div>
+      </div>
+
+      <div class="pending-item">
+        <div class="pending-box"></div>
+        <div>References verified in AMA format; author contributions; conflict of interest disclosures; cover letter</div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div>Private repository — access by invitation only</div>
+    <div>Complete first draft — April 18, 2026</div>
+  </footer>
+
+</div>
+</body>
+</html>
