@@ -27,8 +27,8 @@
     min-height: 100vh;
   }
   nav {
-    width: 260px;
-    min-width: 260px;
+    width: 240px;
+    min-width: 240px;
     background: var(--nav-bg);
     border-right: 1px solid var(--border);
     padding: 2rem 1.25rem;
@@ -67,7 +67,7 @@
     transition: background 0.1s, color 0.1s;
   }
   nav ul li a:hover {
-    background: rgba(139,105,20,0.08);
+    background: rgba(139,105,20,0.1);
     color: var(--accent);
   }
   .notice {
@@ -111,22 +111,11 @@
     color: var(--muted);
     font-weight: normal;
   }
-  main p {
-    margin-bottom: 1rem;
-  }
-  main ul, main ol {
-    margin: 0.5rem 0 1rem 1.5rem;
-  }
-  main li {
-    margin-bottom: 0.3rem;
-  }
-  main strong {
-    font-weight: bold;
-    color: #111;
-  }
-  main em {
-    font-style: italic;
-  }
+  main p { margin-bottom: 1rem; }
+  main ul, main ol { margin: 0.5rem 0 1rem 1.5rem; }
+  main li { margin-bottom: 0.3rem; }
+  main strong { font-weight: bold; color: #111; }
+  main em { font-style: italic; }
   main blockquote {
     border-left: 3px solid var(--accent);
     margin: 1.5rem 0;
@@ -166,9 +155,7 @@
     border: 1px solid var(--border);
     vertical-align: top;
   }
-  main tr:nth-child(even) td {
-    background: rgba(0,0,0,0.015);
-  }
+  main tr:nth-child(even) td { background: rgba(0,0,0,0.015); }
   .back-top {
     display: inline-block;
     font-family: -apple-system, sans-serif;
@@ -190,18 +177,18 @@
 <body>
 <div id="top" class="layout">
   <nav>
-    <div class="nav-title">Manuscript Sections</div>
+    <div class="nav-title">Sections</div>
     <ul>
-      <li><a href="#abstract">Structured Abstract</a></li>
-<li><a href="#section-1--introduction">§1 - Introduction</a></li>
-<li><a href="#section-2--case-presentation">§2 - Case Presentation</a></li>
-<li><a href="#section-3--analysis">§3 - Analysis</a></li>
-<li><a href="#3a--guideline-concordance-analysis">§3a - Guideline Concordance</a></li>
-<li><a href="#3b--causal-chain-and-patient-level-harm-analysis">§3b - Causal Chain</a></li>
-<li><a href="#3c--systems-failure-analysis">§3c - Systems Failure Analysis</a></li>
-<li><a href="#section-4--discussion">§4 - Discussion</a></li>
-<li><a href="#section-5--recommendations">§5 - Recommendations</a></li>
-<li><a href="#section-6--conclusion">§6 - Conclusion</a></li>
+      <li><a href="#structured-abstract">Abstract</a></li>
+<li><a href="#section-1-introduction">1 - Introduction</a></li>
+<li><a href="#section-2-case-presentation">2 - Case Presentation</a></li>
+<li><a href="#section-3-analysis">3 - Analysis</a></li>
+<li><a href="#3a-guideline-concordance-analysis">3a - Guideline Concordance</a></li>
+<li><a href="#3b-causal-chain-and-patient-level-harm-analysis">3b - Causal Chain</a></li>
+<li><a href="#3c-systems-failure-analysis">3c - Systems Failure</a></li>
+<li><a href="#section-4-discussion">4 - Discussion</a></li>
+<li><a href="#section-5-recommendations">5 - Recommendations</a></li>
+<li><a href="#section-6-conclusion">6 - Conclusion</a></li>
 <li><a href="#appendix-verified-clinical-timeline-de-identified">Appendix - Timeline</a></li>
     </ul>
     <div class="notice">
@@ -209,13 +196,13 @@
     </div>
   </nav>
   <main>
-    <h1>Beyond Educational Deprivation: Resident Bypass as a Source of Guideline-Discordant Clinical Decisions and Measurable Patient-Level Harm</h1>
+    <h1 id="beyond-educational-deprivation-resident-bypass-as-a-source-of-guideline-discordant-clinical-decisions-and-measurable-patient-level-harm">Beyond Educational Deprivation: Resident Bypass as a Source of Guideline-Discordant Clinical Decisions and Measurable Patient-Level Harm</h1>
 <p><strong>Target Journal:</strong> The Joint Commission Journal on Quality and Patient Safety<br />
 <strong>Status:</strong> Complete First Draft - April 18, 2026<br />
 <strong>Note:</strong> This document is fully de-identified. All provider names, patient names, institution names, MRN numbers, accession numbers, and specific calendar dates have been removed. Role-based descriptors are used throughout.</p>
 <hr />
 <hr />
-<h1>STRUCTURED ABSTRACT</h1>
+<h1 id="structured-abstract">STRUCTURED ABSTRACT</h1>
 <p><strong>Background</strong></p>
 <p>Resident bypass - the practice whereby attending physicians redirect clinical communication, orders, or decision-making without resident involvement - has been characterized in the graduate medical education literature primarily as a barrier to competency attainment, disrupting deliberate practice, entrustable professional activity progression, and ACGME milestone development. This framing is incomplete. Existing literature has not characterized bypass as a patient safety phenomenon capable of producing guideline-discordant clinical decisions through a traceable causal mechanism, nor has it addressed the inverse supervision risk: that attending decisions made during bypass events may be less guideline-concordant than the resident assessments they displace. No existing patient safety reporting framework, quality review mechanism, or institutional accountability structure is designed to detect, evaluate, or remediate this risk.</p>
 <p><strong>Case Summary</strong></p>
@@ -235,7 +222,7 @@
 <p>Resident bypass is not a supervisory style or a communication preference. This case documents it as a patient safety failure mode with a reproducible mechanism, a traceable causal chain from bypass decision to patient-level harm, and an institutional detection gap that existing supervisory and reporting frameworks are structurally unable to address. Six recommendations are offered: incorporating bypass into patient safety event reporting frameworks; requiring attending documentation when overriding formally documented resident assessments; establishing guideline concordance review for attending orders that override resident assessments in time-sensitive surgical patients; aligning shift handoff policy with bypass prevention; integrating bypass identification into ACGME CLER self-study and faculty development curricula; and closing the feedback loop between consultant assessments and the resident clinical reasoning they evaluate. The institutional infrastructure to implement these recommendations does not yet exist. Building it is the work this case calls for.</p>
 <hr />
 <hr />
-<h1>SECTION 1 - INTRODUCTION</h1>
+<h1 id="section-1-introduction">SECTION 1 - INTRODUCTION</h1>
 <p>Clinical supervision in teaching hospitals is designed as a safety system. The attending physician's oversight of resident clinical decisions represents the terminal check in a layered defensive architecture - the mechanism by which trainee reasoning is verified, refined, and, when necessary, corrected before it reaches the patient. This architecture rests on a foundational assumption: that attending decisions represent an improvement on, or at minimum a verification of, the resident's assessment. When that assumption holds, supervision functions as intended. When it does not - when the attending's substituted judgment is less guideline-concordant, less internally consistent, or less evidence-aligned than the resident's - the supervisory architecture inverts. The terminal check does not improve the clinical decision. It displaces one that was better.</p>
 <p>Resident bypass is the practice whereby attending physicians redirect clinical communication, orders, or decision-making to consultants, nurses, or patients without resident involvement. It has been recognized in the graduate medical education literature as a barrier to competency attainment, documented to disrupt deliberate practice, impair supervisor-trainee trust calibration, and transmit a hidden curriculum message that resident judgment is presumptively inadequate regardless of demonstrated competence. The entrustment framework articulated by Ten Cate - in which attending physicians make entrustment decisions based on iteratively observed, authentic clinical performance - requires exactly the kind of supervised independent practice that bypass systematically denies. The ACGME Common Program Requirements mandate graduated autonomy; bypass is structurally incompatible with that mandate.</p>
 <p>These educational harms are real and well-documented. They are, however, incomplete as a characterization of what bypass produces. The existing literature on resident bypass has not characterized it as a patient safety phenomenon - one capable of generating not merely educational deprivation but proximate, documentable, patient-level adverse outcomes through a traceable causal mechanism. This gap in the literature is significant. Framing bypass exclusively as an educational failure produces exclusively educational remediation: faculty development programs, entrustment frameworks, milestone oversight. These interventions do not address the inverse supervision risk - attending clinical decisions made without resident engagement that are less safe than the decisions they replace - because that risk has not been named, characterized, or incorporated into existing patient safety reporting or quality review frameworks.</p>
@@ -244,7 +231,7 @@
 <p>This case does not present bypass as a communication style or a supervisory preference. It presents bypass as a systems failure with a documentable adverse outcome pathway, a reproducible behavioral mechanism, and an institutional detection gap that existing patient safety infrastructure is not equipped to address. The argument has implications beyond graduate medical education: for patient safety reporting frameworks, quality improvement infrastructure, institutional accountability mechanisms, and the ACGME's Clinical Learning Environment Review program, which is specifically charged with evaluating whether teaching hospitals have integrated patient safety culture with the realities of clinical supervision.</p>
 <hr />
 <hr />
-<h1>SECTION 2 - CASE PRESENTATION</h1>
+<h1 id="section-2-case-presentation">SECTION 2 - CASE PRESENTATION</h1>
 <p>An 85-year-old woman was brought to the emergency department of an academic community hospital following a mechanical fall. She reported mistepping and losing her balance, falling onto her right side without loss of consciousness. Imaging confirmed a mildly displaced right intertrochanteric femur fracture, a right distal radial metadiaphyseal fracture with mild dorsal rotation and impaction, and a left index finger laceration requiring sutured repair; the right wrist was splinted. Emergent operative fixation of the hip fracture was indicated. Relevant medical history included depression, insomnia, chronic mild thrombocytopenia, and chronic kidney disease stage 3a with stable renal function. The patient's husband of 64 years had died two days prior to her presentation.</p>
 <p><strong>Before 3:07 AM, Day 2 - Pre-H&amp;P Verbal Interaction (Bypass Event 1, Part A)</strong></p>
 <p>Prior to completing the admission history and physical examination, and after evaluating the patient, the supervising attending communicated her clinical concern to the admitting PGY-3 resident in person: the BNP of 202.8 pg/mL and troponin elevation raised concern for undiagnosed heart failure, and she required a cardiology consultation for preoperative clearance before surgery could proceed. The admitting resident pushed back directly, arguing that preoperative cardiology clearance was not warranted for a patient with a time-sensitive hip fracture and no clinical evidence of an active cardiac condition. The attending responded by restating her concern for undiagnosed heart failure. The requirement stood. No documentation of this exchange exists in the medical record.</p>
@@ -297,8 +284,8 @@
 <p>The patient underwent closed reduction of the right distal radius fracture and closed reduction internal fixation of the right intertrochanteric hip fracture using a cephalomedullary nail construct. Anesthesia was general. Estimated blood loss was 3 mL. There were no complications. The patient tolerated the procedure and was transferred to the recovery room in stable condition.</p>
 <hr />
 <hr />
-<h1>SECTION 3 - ANALYSIS</h1>
-<h2>3a - Guideline Concordance Analysis</h2>
+<h1 id="section-3-analysis">SECTION 3 - ANALYSIS</h1>
+<h2 id="3a-guideline-concordance-analysis">3a - Guideline Concordance Analysis</h2>
 <p>The attending physician's clinical decisions in this case are evaluated against the governing clinical guideline framework that existed, was publicly available, and was directly applicable to this patient's clinical situation at the time the decisions were made. The 2014 ACC/AHA Guideline on Perioperative Cardiovascular Evaluation and Management of Patients Undergoing Noncardiac Surgery is the authoritative standard for exactly this clinical scenario - an elderly patient with cardiac risk considerations requiring urgent operative intervention. Its application to the decisions made in this case is not inferential. It is direct. The admitting resident applied it explicitly at 3:07 AM and documented his application in the permanent medical record. The attending's decisions are evaluated against the same standard.</p>
 <p><strong>The guideline framework: emergent and urgent surgery</strong></p>
 <p>The 2014 ACC/AHA guideline establishes a stepwise algorithm for perioperative cardiovascular evaluation. Its first and most fundamental branch point addresses surgical urgency. For patients requiring emergent or urgent surgery, the guideline is explicit: the clinical team should proceed to the operating room without delay for pre-operative cardiac evaluation, managing identified cardiac risk factors in the perioperative and postoperative periods. Pre-operative cardiac evaluation is reserved for patients in whom the urgency of surgery permits the time required for evaluation and intervention, and in whom identified findings would change perioperative management in a manner that improves outcomes.</p>
@@ -322,7 +309,7 @@
 <p><strong>The attending's attestation as documentary confirmation</strong></p>
 <p>Twenty-eight minutes after the cardiology consultant cleared the patient for surgery, the supervising attending attested the admitting resident's history and physical examination, documenting her agreement with the resident's findings and plan. The resident's plan had included cardiology consultation as a pending item - not as a surgical gating requirement. Whether this attestation constitutes a deliberate reversal or a routine cosignature executed without full awareness of its implications is a question this manuscript does not need to resolve. The documentary record speaks for itself: the attending stated a clinical requirement, read a contrary documented conclusion, repeated the requirement, required a specialist to address her concern, and 28 minutes after that specialist confirmed the resident's conclusion, signed a statement agreeing with it.</p>
 <hr />
-<h2>3b - Causal Chain and Patient-Level Harm Analysis</h2>
+<h2 id="3b-causal-chain-and-patient-level-harm-analysis">3b - Causal Chain and Patient-Level Harm Analysis</h2>
 <p>The clinical sequence documented in this case is not a collection of independent events. It constitutes a traceable causal chain in which a bypass-generated decision initiated an adverse outcome pathway whose downstream consequences were compounded by a second bypass event that managed a problem the first had plausibly created. Each link in that chain is supported by the clinical record and by the peer-reviewed literature governing the management of elderly patients with traumatic hip fractures. Where causal relationships are plausible but not definitively established, they are characterized as such.</p>
 <p><strong>Link 1: Bypass event 1 generates a guideline-discordant operative delay</strong></p>
 <p>Before the admitting resident had completed the history and physical examination, the supervising attending communicated her requirement that cardiology clearance be obtained prior to surgery. The resident pushed back directly, arguing that preoperative cardiology clearance was not warranted. He was overruled. He subsequently documented his guideline-concordant contrary conclusion in the permanent medical record at 3:07 AM - including a dedicated section on pre-operative cardiac risk assessment, a calculated RCRI score of 0, and a verbatim statement that no evidence of STEMI, decompensated heart failure, or other unstable cardiac condition requiring routine delay was present. At approximately 6:00 AM, the attending reviewed the H&amp;P, read this conclusion, and repeated the requirement without engaging a single element of its reasoning.</p>
@@ -348,7 +335,7 @@
 <p>The five links form a closed and self-referential sequence: a bypass-generated, guideline-discordant cardiology consultation requirement initiated an operative delay before the history and physical examination was complete; that delay was extended by the daytime team's failure to execute the already-required consultation during daytime hours; the prolonged delay exhausted both fluid orders placed in anticipation of imminent surgery; progressive fracture hematoma hemorrhage accumulated over the pre-operative period without operative intervention; a nocturnal hemodynamic episode plausibly downstream of this cumulative delay required clinical management; and the clinical management of that episode was itself subject to a second bypass event whose mechanism - a fait accompli in-person announcement at the admitting resident's workstation - is documentable from the permanent medical record.</p>
 <p>At no point in this sequence did any institutional mechanism exist to flag, review, intercept, or document the attending's clinical decisions as they were made.</p>
 <hr />
-<h2>3c - Systems Failure Analysis</h2>
+<h2 id="3c-systems-failure-analysis">3c - Systems Failure Analysis</h2>
 <p>The clinical events described in this case are not adequately characterized as a series of interpersonal communication failures between individual providers. Examined through the lens of patient safety systems science, they constitute a constellation of identifiable, nameable, and potentially remediable systems failures - latent conditions embedded in the structure of clinical supervision in academic medicine that enabled a bypass-generated adverse outcome pathway to traverse a full clinical episode without triggering a single existing detection or review mechanism.</p>
 <p><strong>Failure Mode 1: Removal of a documented safety barrier without review</strong></p>
 <p>Patient safety systems theory, articulated by Reason and subsequently operationalized in healthcare by Leape, Pronovost, and the Institute of Medicine's landmark To Err is Human framework, conceptualizes safety as a property of layered defensive barriers rather than individual provider performance. In this framework, the admitting resident's 3:07 AM history and physical examination functioned as a documented, reviewable, auditable safety barrier - a clinical reasoning artifact that explicitly identified the risk landscape, applied the governing guideline framework, reached a defensible and quantified conclusion, and operationalized that conclusion in a comprehensive order set.</p>
@@ -376,7 +363,7 @@
 <p>The 3:07 AM history and physical examination documents the first bypass event in the permanent medical record. The SecureChat documents the second. Both bypass events are documentable from the permanent medical record. Both followed the same mechanism. Neither generated an institutional response. The pattern is not incidental. It is a supervisory behavior that repeated across a single hospitalization without detection, without review, and without any mechanism by which the institution could have known it had occurred.</p>
 <hr />
 <hr />
-<h1>SECTION 4 - DISCUSSION</h1>
+<h1 id="section-4-discussion">SECTION 4 - DISCUSSION</h1>
 <p>This case contributes to the patient safety literature in a specific and bounded way. It does not establish the prevalence of resident bypass, characterize its frequency across institutions, or quantify the proportion of bypass events that produce adverse outcomes. It does something more foundational: it documents, with timestamped primary source evidence across a complete clinical episode, that bypass can function as a patient safety failure mode - one with a reproducible mechanism, a traceable causal chain, and an institutional detection gap that existing supervisory and reporting frameworks are structurally unable to address.</p>
 <p><strong>Why bypass has been framed as an educational problem</strong></p>
 <p>The existing literature on resident bypass has developed almost exclusively within the graduate medical education community, where the primary analytical lens is competency attainment and the primary outcome of interest is trainee development. Within this framework, bypass is harmful because it denies residents the deliberate practice required for milestone progression, disrupts the trust calibration process through which attending physicians make entrustment decisions, and transmits a hidden curriculum message that undermines professional identity formation. These harms are real, cumulative, and consequential for the quality of the physician workforce over time.</p>
@@ -397,7 +384,7 @@
 <p>These limitations do not undermine the case's central contribution. They define its boundaries. A single case with primary source documentation across a complete clinical episode establishes proof of concept - that bypass can function as a patient safety failure mode with a traceable causal chain - and generates hypotheses that prospective study designs can test. The contribution is foundational rather than definitive, and it is offered as such.</p>
 <hr />
 <hr />
-<h1>SECTION 5 - RECOMMENDATIONS</h1>
+<h1 id="section-5-recommendations">SECTION 5 - RECOMMENDATIONS</h1>
 <p>The systems failures documented in this case are not attributable to individual provider malice, incompetence, or indifference. They are attributable to a supervisory architecture that was not designed to detect the inverse supervision risk, not equipped to evaluate the clinical quality of attending decisions made during bypass events, and not structured to produce institutional accountability when those decisions generate patient-level harm. The recommendations that follow are directed at systems and institutions rather than individuals.</p>
 <p><strong>Recommendation 1: Incorporate resident bypass into existing patient safety event reporting frameworks</strong></p>
 <p>Resident bypass events - specifically those in which an attending physician overrides a documented resident clinical assessment without engagement and through a mechanism that excludes the resident from the decision - should be reportable through existing patient safety event reporting systems, not solely through graduate medical education channels. Institutions should add resident bypass as a reportable event type in existing safety reporting systems, with a structured data field capturing the nature of the bypassed assessment, the attending's substituted decision, and any patient-level outcomes associated with the decision. Residents should have explicit, protected access to this reporting pathway, with assurance that bypass reports will be reviewed by patient safety leadership rather than solely by graduate medical education administration.</p>
@@ -413,7 +400,7 @@
 <p>Institutions should establish a mechanism - implementable within existing electronic health record infrastructure - to notify the admitting resident when a consultant's assessment materially addresses the clinical question that prompted the bypass event. In this case, the cardiology consultant's assessment confirmed the admitting resident's clinical reasoning in every material respect. The resident was never formally notified of this confirmation. This notification serves both educational and patient safety functions: it closes the feedback loop essential for clinical reasoning development and creates an institutional record that the bypass-generated consultation produced no new clinical information.</p>
 <hr />
 <hr />
-<h1>SECTION 6 - CONCLUSION</h1>
+<h1 id="section-6-conclusion">SECTION 6 - CONCLUSION</h1>
 <p>At 3:07 AM, an internal medicine resident completed a history and physical examination for an 85-year-old woman who had broken her hip and lost her husband of 64 years two days before her fall. The document he produced was comprehensive, individualized, and guideline-concordant. It enumerated every cardiac risk consideration present in the chart, applied a validated perioperative risk stratification tool, dedicated a section to the ACC/AHA perioperative guideline framework, and reached a verbatim conclusion that no evidence of an unstable cardiac condition requiring routine delay of time-sensitive hip fracture surgery was present. It simultaneously ordered the echocardiogram, the repeat electrocardiogram, the cardiology consultation, the conservative fluid strategy, the multimodal analgesia protocol, the renal-protective medication plan, the electrolyte targets, the non-pharmacologic delirium precautions, and the social work evaluation for bereavement support. It was the clinical document of a physician in training doing exactly what graduate medical education is designed to produce.</p>
 <p>That document was bypassed - twice, by the same attending, using the same mechanism, across the same hospitalization. The first bypass, at approximately 6:00 AM, converted a resident-ordered pending consultation into a pre-operative surgical gate and initiated an operative delay that the governing clinical guideline did not support. The second bypass, at approximately 1:00 AM the following morning, overrode a graduated fluid protocol developed through direct bedside assessment and structured clinical reflection, through a fait accompli announcement at the resident's workstation that foreclosed clinical dialogue at the moment of disclosure.</p>
 <p>The specialist invoked to justify the first bypass confirmed the resident's assessment. The attending attested agreement with the resident's plan 28 minutes later. The second bypass is documented in the permanent medical record by the resident's own relay message in a formal communication system - the only record, under any authorship, that the attending's intervention occurred at all. Neither bypass event generated an institutional response. Neither triggered a reporting mechanism. Neither produced a corrective action. The patient underwent surgery the following morning without complications - but only after an operative delay, a nocturnal hemodynamic episode plausibly attributable to that delay, and a fluid management intervention that was less internally consistent with the attending's own stated clinical concern than the protocol it displaced.</p>
@@ -422,8 +409,8 @@
 <p>The institutional infrastructure to do this does not yet exist. Building it is the work this case calls for.</p>
 <hr />
 <hr />
-<h1>APPENDIX: VERIFIED CLINICAL TIMELINE (DE-IDENTIFIED)</h1>
-<h2>Provider Roles</h2>
+<h1 id="appendix-verified-clinical-timeline-de-identified">APPENDIX: VERIFIED CLINICAL TIMELINE (DE-IDENTIFIED)</h1>
+<h2 id="provider-roles">Provider Roles</h2>
 <ul>
 <li>Admitting resident: PGY-3, internal medicine</li>
 <li>Supervising attending: Attending physician, internal medicine/hospitalist</li>
@@ -435,7 +422,7 @@
 <li>PGY-1 overnight co-resident: PGY-1, internal medicine</li>
 <li>Bedside RN: Registered nurse, overnight shift</li>
 </ul>
-<h2>Patient Summary</h2>
+<h2 id="patient-summary">Patient Summary</h2>
 <p>85-year-old woman. Admitted following mechanical fall. Academic community hospital, inpatient medicine service. Presenting complaint: Mildly displaced right intertrochanteric femur fracture, right distal radius fracture, repaired left index finger laceration. Comorbidities: Depression, insomnia, chronic mild thrombocytopenia, CKD stage 3a. Husband of 64 years died two days prior to presentation.</p>
 <hr />
 <p><strong>Day 1, evening</strong> - ED arrival. Imaging confirmed mildly displaced right intertrochanteric femur fracture, right distal radial metadiaphyseal fracture, left index finger laceration. Wrist splinted; laceration sutured. Chest radiograph: no acute findings.</p>
@@ -578,7 +565,7 @@ MAR confirms: LR 100 mL/hr - Comstock, David A., MD - started ~0534.</p>
 <p><strong>Day 3, 10:28 AM - Surgery</strong></p>
 <p>Closed reduction right distal radius fracture and closed reduction internal fixation right intertrochanteric hip fracture - cephalomedullary nail construct. Anesthesia: General. EBL: 3 mL. Complications: None. Patient tolerated procedure well; transferred to recovery in stable condition.</p>
 <hr />
-<h2>Summary Timeline Table</h2>
+<h2 id="summary-timeline-table">Summary Timeline Table</h2>
 <table>
 <thead>
 <tr>
@@ -694,7 +681,7 @@ MAR confirms: LR 100 mL/hr - Comstock, David A., MD - started ~0534.</p>
 </tbody>
 </table>
 <hr />
-<h2>Pending Items</h2>
+<h2 id="pending-items">Pending Items</h2>
 <ol>
 <li>Reason for daytime hospitalist fluid order end time (~4:45 PM) - not yet established; requires clarification</li>
 <li>Daytime team failure to contact cardiology - supported by three independent lines of evidence (cardiology office verbal confirmation, cardiology NP verbal confirmation, cardiology note creation timestamp); formal chart notation not yet confirmed</li>
